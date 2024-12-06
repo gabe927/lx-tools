@@ -1,5 +1,5 @@
 {
-    "name": "HCPS Endpoint Utilities",
+    "name": "Nerd Lighting Tools",
     "description": "A set of utilities to make our jobs slightly easier",
     "icons": [
         {
@@ -23,20 +23,8 @@
     "display": "minimal-ui",
     "shortcuts": [
         {
-            "name": "Student Labels",
-            "url": "/studentlabels"
-        },
-        {
-            "name": "Teacher Labels",
-            "url": "/studentlabels"
-        },
-        {
-            "name": "Chromebook Templates",
-            "url": "/templates/chromebooks"
-        },
-        {
-            "name": "Windows Templates",
-            "url": "/templates/windows"
+            "name": "Fixture Labels",
+            "url": "/fixturelabels"
         }
     ]
 }

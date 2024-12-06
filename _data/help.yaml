@@ -1,10 +1,3 @@
-templates: |
-  ## templates
-  When submitting dispatches in Dell TechDirect, there are several issues that come up repeatedly. The purpose of these pages is to make entering these issues much easier by providing a script to use.  
-
-  The first line, in bold, is for the Description of Problem field in TechDirect. The second is for the larger field, Troubleshooting Performed. Some issues have multiple options for the second field for slightly different variants of the same general issue.
-  To copy one of these lines to your clipboard for pasting into TechDirect, simply click on it. The line will be momentarily highlighted to show what was copied.
-
 labels: |
   ## labels
   Label template uses Avery 5160 Address labels.
