@@ -1,0 +1,12 @@
+services:
+  jekyll:
+    # use this to build from the local dockerfile with different jekyll settings
+    build: 
+      dockerfile: Dockerfile
+    # use this to use a pre-existing image with pre-determined settings
+    # image: bretfisher/jekyll-serve
+    volumes:
+      - .:/site
+    ports:
+      - '4000:4000'
+      - '4001:4001'
