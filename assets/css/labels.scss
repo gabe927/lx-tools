@@ -319,6 +319,56 @@ input {
 
 }
 
+// Fixture label
+.label.fixture {
+
+    input,
+    textarea {
+        width: 100px;
+
+        background: #fff1;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        transition: all 1s;
+
+        position: absolute;
+    };
+
+    .mult {
+        rotate: -90deg;
+        transform-origin: top right;
+        left: 0;
+        top: 0;
+        width: .5in;
+    }
+
+    .circuit-number {
+
+    }
+
+    .fixture-number {
+
+    }
+
+    .mode {
+
+    }
+
+    .position {
+
+    }
+
+    .fixture-type {
+
+    }
+
+    .address {
+
+    }
+
+}
+
 // right hand toolbar
 
 nav.toolbar {

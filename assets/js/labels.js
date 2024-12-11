@@ -1,5 +1,3 @@
-import encode from './encoder.mjs'
-
 // label length limit
 var limit = 7
 
