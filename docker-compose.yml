@@ -1,12 +1,14 @@
 services:
-  jekyll:
-    # use this to build from the local dockerfile with different jekyll settings
+  my-jekyll-container:
     build: 
       dockerfile: Dockerfile
-    # use this to use a pre-existing image with pre-determined settings
-    # image: bretfisher/jekyll-serve
+    container_name: local_jekyll
+    tty: true
     volumes:
-      - .:/site
+      - .:/app
     ports:
-      - '4000:4000'
-      - '4001:4001'
+      - "4000:4000"
+      - "4001:4001"
+    command: >
+      bash -c "bundle install
+      && bundle exec jekyll serve --force_polling -H 0.0.0.0 -P 4000 --livereload --livereload_port 4001"

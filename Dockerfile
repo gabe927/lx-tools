@@ -1,27 +1,23 @@
-FROM ruby:3.1-slim-bullseye as jekyll
+# Use Debian as a parent image
+FROM debian:latest
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+# Update the package index and install necessary packages
+RUN apt-get update && apt-get install -y \ 
+    ruby \
+    ruby-bundler \
+    ruby-dev \
+    nano \
+    systemctl \
+    build-essential \ 
+ && rm -rf /var/lib/apt/lists/* 
 
-# used in the jekyll-server image, which is FROM this image
-COPY docker-entrypoint.sh /usr/local/bin/
-
-RUN gem update --system && gem install jekyll && gem cleanup
+# Set the working directory to /app
+WORKDIR /app
 
 EXPOSE 4000
 
-WORKDIR /site
+# Display Ruby version and bundler version
+RUN ruby --version && bundle --version && gem install bundler jekyll
 
-ENTRYPOINT [ "jekyll" ]
-
-CMD [ "--help" ]
-
-# build from the image we just built with different metadata
-FROM jekyll as jekyll-serve
-
-# on every container start, check if Gemfile exists and warn if it's missing
-ENTRYPOINT [ "docker-entrypoint.sh" ]
-
-CMD [ "bundle", "exec", "jekyll", "serve", "--force_polling", "-H", "0.0.0.0", "-P", "4000", "--livereload", "--livereload_port", "4001" ]
+# Command to run when the container starts
+CMD ["irb"]
