@@ -26,20 +26,13 @@ help: labels
             <div class="labels">
                 {% for i in (0..29) %}
                 <div class="label fixture">
-                    <input class="mult" id="mult{{ i }}" type="text" placeholder="" autocomplete="one-time-code"
-                        oninput="updateTextBox(this)">
-                    <input class="circuit-number" id="circuit-number{{ i }}" type="text" placeholder=""
-                        autocomplete="one-time-code" oninput="updateTextBox(this)">
-                    <input class="fixture-number" id="fixture-number{{ i }}" type="text" placeholder=""
-                        autocomplete="one-time-code" oninput="updateTextBox(this)">
-                    <input class="mode" id="mode{{ i }}" type="text" placeholder="" autocomplete="one-time-code"
-                        oninput="updateTextBox(this)">
-                    <input class="position" id="position{{ i }}" type="text" placeholder=""
-                        autocomplete="one-time-code" oninput="updateTextBox(this)">
-                    <input class="fixture-type" id="fixture-type{{ i }}" type="text" placeholder=""
-                        autocomplete="one-time-code" oninput="updateTextBox(this)">
-                    <input class="address" id="address{{ i }}" type="text" placeholder="" autocomplete="one-time-code"
-                        oninput="updateTextBox(this)">
+                    <input class="mult" id="mult{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
+                    <input class="circuit-number" id="circuit-number{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
+                    <input class="fixture-number" id="fixture-number{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
+                    <input class="mode" id="mode{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
+                    <input class="position" id="position{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
+                    <input class="fixture-type" id="fixture-type{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
+                    <input class="address" id="address{{ i }}" type="text" placeholder="" oninput="updateTextBox(this)">
                 </div>
                 {% endfor %}
             </div>
