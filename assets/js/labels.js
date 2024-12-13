@@ -83,24 +83,47 @@ function getTextWidth(text, font) {
     context.font = font;
     const metrics = context.measureText(text);
     return metrics.width;
-  }
+}
   
   function getCssStyle(element, prop) {
       return window.getComputedStyle(element, null).getPropertyValue(prop);
-  }
+}
   
   function getCanvasFont(el = document.body) {
     const fontWeight = getCssStyle(el, 'font-weight') || 'normal';
     const fontSize = getCssStyle(el, 'font-size') || '16px';
     const fontFamily = getCssStyle(el, 'font-family') || 'Times New Roman';
     
-    return `${fontWeight} ${fontSize} ${fontFamily}`;
-  }
-  
-// console.log(getTextWidth("hello there!", "bold 12pt arial"));  // close to 86
+    return [fontWeight, fontSize, fontFamily]
+}
 
-function updateTextBox(o) {
-    console.log("detected input " + o.value + " from " + o.id + " with text width " + getTextWidth(o.value, o.font))
+function getElementWidth(el) {
+    return el.clientWidth
+}
+
+function updateTextBox(el) {
+    const font = getCanvasFont(el)
+    const fontWeight = font[0]
+    var fontSize = parseFloat(font[1])
+    const fontFamily = font[2]
+
+    var textWidth = getTextWidth(el.value, `${fontWeight} ${fontSize}px ${fontFamily}`)
+    const boxWidth = getElementWidth(el) - 5 //some padding since inside of text box is smaller than outside
+
+    if (textWidth > boxWidth) {
+        while (textWidth > boxWidth) {
+            fontSize = fontSize - 1
+            textWidth = getTextWidth(el.value, `${fontWeight} ${fontSize}px ${fontFamily}`)
+        }
+        el.style.fontSize = fontSize + 'px'
+    }
+    else if (textWidth < boxWidth) {
+        while (textWidth < boxWidth) {
+            fontSize = fontSize + 1
+            textWidth = getTextWidth(el.value, `${fontWeight} ${fontSize}px ${fontFamily}`)
+        }
+        el.style.fontSize = fontSize + 'px'
+    }
 }
 
 window.updateTextBox = updateTextBox
